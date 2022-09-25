@@ -1,0 +1,39 @@
+import string
+from dataclasses import dataclass, field
+
+# Basic method of setting and getting attributes on Python
+
+class Celsius:
+    def __init__(self, temperature=0):
+        #self.temperature = temperature
+        self.set_temperature(temperature)
+        
+    def to_fahrenheit(self):
+        return (self.temperature* 1.8) + 32
+    
+# Making Getters and Setters methods
+
+# getter method
+    def get_temperature(self):
+        return self._temperature
+    
+# setter method
+    def set_temperature(self):
+        if value < -273.15:
+            raise VauleError("Temperature below -273.15 is not possible.")
+        self._temperatue = value
+    
+# Create a new object, set_temperature() internally called by __init()__
+human = Celsius(37)
+
+# Get the temperature attribute via getter
+print(human.get_temperature())
+
+# Get the fahrenheit method, get_temperature() called by the method itself
+print(human.to_fahrenheit())
+
+# new constraint implementation
+human.set_temperature(-300)
+
+# Get the to_fahrenheit method
+print(human.to_fahrenheit())
