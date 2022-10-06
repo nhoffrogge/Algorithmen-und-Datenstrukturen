@@ -9,7 +9,7 @@ class Celsius:
         self.set_temperature(temperature)
         
     def to_fahrenheit(self):
-        return (self.temperature* 1.8) + 32
+        return (self.get_temperature() * 1.8) + 32
     
 # Making Getters and Setters methods
 
@@ -18,10 +18,10 @@ class Celsius:
         return self._temperature
     
 # setter method
-    def set_temperature(self):
+    def set_temperature(self, value):
         if value < -273.15:
-            raise VauleError("Temperature below -273.15 is not possible.")
-        self._temperatue = value
+            raise ValueError("Temperature below -273.15 is not possible.")
+        self._temperature = value
     
 # Create a new object, set_temperature() internally called by __init()__
 human = Celsius(37)
