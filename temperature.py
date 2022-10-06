@@ -15,25 +15,38 @@ class Celsius:
 
 # getter method
     def get_temperature(self):
+        print(self._temperature)
         return self._temperature
+
     
 # setter method
     def set_temperature(self, value):
         if value < -273.15:
             raise ValueError("Temperature below -273.15 is not possible.")
         self._temperature = value
+<<<<<<< HEAD
+=======
+        
+# creating a property object
+temperature = property(get_temperature, set_temperature)
+>>>>>>> 9cbe21c956670fee4a6b0a43e803525688a986a3
     
 # Create a new object, set_temperature() internally called by __init()__
 human = Celsius(37)
 
+print(human.temperature)
+print(human.to_fahrenheit())
+
+human.temperature = -300
+
 # Get the temperature attribute via getter
-print(human.get_temperature())
+#print(human.get_temperature())
 
 # Get the fahrenheit method, get_temperature() called by the method itself
-print(human.to_fahrenheit())
+#print(human.to_fahrenheit())
 
 # new constraint implementation
-human.set_temperature(-300)
+#human.set_temperature(-300)
 
 # Get the to_fahrenheit method
-print(human.to_fahrenheit())
+#print(human.to_fahrenheit())
