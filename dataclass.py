@@ -1,29 +1,31 @@
+#from ctypes import addressof
 import string
+import random
 from dataclasses import dataclass, field
+from typing import List
 
-@dataclass
+def generate_id() -> str:
+    return "".join(random.choices(string.ascii_uppercase, k= 12))
 
-class Vehicle:
-    brand: str
-    catalogue_price: int
-    electric: bool
-    license_plate: str = field(init=False)
-    
-    def __post_init__(self):
-        self.license_plate = generate_vehicle_license()
-        
-    @property
-    def tax(self) -> int:
-        tax_rate = 0.02 if self.electric else 0.05
-        return int(tax_rate * self.catalogue_price)
-    
-def main():
-    tesla = Vehicle("Tesla Model 3", 600000, True)
-    volkswagen = Vehicle("Volkswagen", 350000, True)
-    print(tesla.tax)
-    print(volkswagen.tax)
-    
-    
+
+
+@dataclass(frozen=False)
+class Person:
+    name: str
+    adress: str
+    #vinf: list[str] = field(default_factory = str)
+    email_adresses: List[str] = field(default_factory=list)
+    id: str = field(default_factory=generate_id)
+    _search_string: str = field(init=False, repr=False)
+
+    def __post_init__(self) -> None:
+        self._search_string = f"{self.name} {self.adress}"
+
+
+def main() -> None:
+    person = Person(name = "John", adress = "123 Main St")
+    person.name = "Nils" 
+    print(person)       
+
 if __name__ == "__main__":
     main()
-        
