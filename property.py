@@ -2,16 +2,27 @@ class Kunde:
     def __init__(self, vorname, nachname, guthaben=0):
         self.nachname = nachname
         self.vorname = vorname
-        self.guthaben = guthaben
+        self._guthaben = guthaben
+        
+        
+    @property 
+    # Getter methode
+    def guthaben(self):
+        return self._guthaben
+    
+    @guthaben.setter
+    def guthaben(self, amount):
+        if type(amount) != int:
+            raise AttributeError("Attribut kann nur int sein!")
+        self._guthaben = amount
         
     def einzahlen(self, amount):
-        self.guthaben = self.guthaben + amount
+        self._guthaben = self._guthaben + amount
         
 kunde1 = Kunde("Max", "Mustermann", guthaben = 200)
 
-kunde1.guthaben = "hi"
+kunde1.guthaben = "hallo"
 
-kunde1.einzahlen(200)
-
+print(kunde1.guthaben)
 
 
