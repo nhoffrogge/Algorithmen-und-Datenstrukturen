@@ -24,12 +24,9 @@ class Celsius:
         if value < -273.15:
             raise ValueError("Temperature below -273.15 is not possible.")
         self._temperature = value
-<<<<<<< HEAD
-=======
         
 # creating a property object
 temperature = property(get_temperature, set_temperature)
->>>>>>> 9cbe21c956670fee4a6b0a43e803525688a986a3
     
 # Create a new object, set_temperature() internally called by __init()__
 human = Celsius(37)
