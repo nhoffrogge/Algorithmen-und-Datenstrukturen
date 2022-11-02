@@ -1,31 +1,31 @@
 import sys
 
-n = 10
+# n = 10
 
-data = []
+# data = []
 
-for i in range(n):
+# for i in range(n):
     
-    a = len(data)
+#     a = len(data)
     
-    b = sys.getsizeof(data)
+#     b = sys.getsizeof(data)
     
-    print('Laenge: ', a, 'Groesse in Bytes: ', b)
+#     print('Laenge: ', a, 'Groesse in Bytes: ', b)
     
-    data.append(i)
+#     data.append(i)
     
-class M(object):
+# class M(object):
     
-    def public(self):
-        print('Use Tab to see me!')
+#     def public(self):
+#         print('Use Tab to see me!')
         
-    def _private(self):
-        print('You wont be able to Tab to see me!')
+#     def _private(self):
+#         print('You wont be able to Tab to see me!')
         
-m = M()
-m.public()
+# m = M()
+# m.public()
 
-m._private()
+# m._private()
 
 import ctypes
 
@@ -44,7 +44,7 @@ class DynamicArray():
         # arr[6]
         
         if not 0 <= k < self.n:
-            return IndexError('K is out of bounds!')
+            return IndexError(print('K is out of bounds!'))
         
         return self.A[k]
     
@@ -67,3 +67,8 @@ class DynamicArray():
     def make_array(self, new_cap):
         
         return (new_cap * ctypes.py_object)()
+    
+arr = DynamicArray()
+# arr.append(1)
+
+arr[10]
